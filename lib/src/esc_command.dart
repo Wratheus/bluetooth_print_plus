@@ -30,7 +30,7 @@ class EscCommand {
   ///
   /// - Parameters:
   ///   - content: The text content to be printed.
-  ///   - alignment: The alignment of the text. Defaults to [Alignment.left].
+  ///   - alignment: The alignment of the text. Defaults to [PrintAlignment.left].
   ///   - style: The style of the text. Can be normal, bold, underline, or
   ///     both bold and underline. Defaults to [EscTextStyle.default_].
   ///   - fontSize: The font size of the text. Options range from default
@@ -39,7 +39,7 @@ class EscCommand {
   /// - Returns: A [Future] that completes when the command has been sent.
   Future<void> text(
       {required String content,
-      Alignment alignment = Alignment.left,
+      PrintAlignment alignment = PrintAlignment.left,
       EscTextStyle style = EscTextStyle.default_,
       EscFontSize fontSize = EscFontSize.default_}) async {
     int printMode = EnumTool.getEscTextStyle(style);
@@ -66,7 +66,7 @@ class EscCommand {
   ///   - content: The content of the barcode to be printed.
   ///   - width: The width of the barcode. Defaults to 2.
   ///   - height: The height of the barcode. Defaults to 60.
-  ///   - alignment: The alignment of the barcode. Defaults to [Alignment.left].
+  ///   - alignment: The alignment of the barcode. Defaults to [PrintAlignment.left].
   ///   - hriPosition: The position of the human readable interpretation of the
   ///     barcode. Options are [HriPosition.none], [HriPosition.above],
   ///     [HriPosition.below], and [HriPosition.aboveAndBelow]. Defaults to
@@ -77,7 +77,7 @@ class EscCommand {
       {required String content,
       int width = 2,
       int height = 60,
-      Alignment alignment = Alignment.left,
+      PrintAlignment alignment = PrintAlignment.left,
       HriPosition hriPosition = HriPosition.below}) async {
     int hri = EnumTool.getHri(hriPosition);
     int align = EnumTool.getAlignment(alignment);
@@ -103,7 +103,7 @@ class EscCommand {
   ///   - size: The size of the QR code. Valid range is from 1 to 16.
   ///     Defaults to 3.
   ///   - alignment: The alignment of the QR code on the printout.
-  ///     Defaults to [Alignment.left].
+  ///     Defaults to [PrintAlignment.left].
   ///
   /// - Returns: A [Future] that completes when the command has been sent.
   Future<void> qrCode({
@@ -111,7 +111,7 @@ class EscCommand {
     int size = 3,
 
     /// size range: 1~16
-    Alignment alignment = Alignment.left,
+    PrintAlignment alignment = PrintAlignment.left,
   }) async {
     int align = EnumTool.getAlignment(alignment);
     Map<String, dynamic> params = {
@@ -131,12 +131,12 @@ class EscCommand {
   /// - Parameters:
   ///   - image: The image data.
   ///   - alignment: The alignment of the image on the printout.
-  ///     Defaults to [Alignment.left].
+  ///     Defaults to [PrintAlignment.left].
   ///
   /// - Returns: A [Future] that completes when the command has been sent.
   Future<void> image({
     required Uint8List image,
-    Alignment alignment = Alignment.left,
+    PrintAlignment alignment = PrintAlignment.left,
   }) async {
     int align = EnumTool.getAlignment(alignment);
     Map<String, dynamic> params = {"image": image, "alignment": align};

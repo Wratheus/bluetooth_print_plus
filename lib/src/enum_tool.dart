@@ -38,8 +38,8 @@ enum EscFontSize {
 /// HriPosition
 enum HriPosition { none, above, below, aboveAndBelow }
 
-/// Alignment
-enum Alignment { left, center, right }
+/// Print Alignment
+enum PrintAlignment { left, center, right }
 
 /// EnumTool
 class EnumTool {
@@ -131,14 +131,14 @@ class EnumTool {
     }
   }
 
-  /// getAlignment
-  static int getAlignment(Alignment alignment) {
+  /// getPrintAlignment
+  static int getAlignment(PrintAlignment alignment) {
     switch (alignment) {
-      case Alignment.left:
+      case PrintAlignment.left:
         return 0;
-      case Alignment.center:
+      case PrintAlignment.center:
         return 1;
-      case Alignment.right:
+      case PrintAlignment.right:
         return 2;
     }
   }

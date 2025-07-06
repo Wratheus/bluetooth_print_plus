@@ -112,7 +112,7 @@ class CommandTool {
     await escCommand.newline();
     await escCommand.text(
         content: "hello flutter",
-        alignment: Alignment.center,
+        alignment: PrintAlignment.center,
         style: EscTextStyle.underline,
         fontSize: EscFontSize.size3);
     await escCommand.newline();
