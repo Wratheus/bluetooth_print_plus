@@ -1,4 +1,4 @@
-import 'dart:io';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'dart:async';
@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
 
     /// listen isScanning
     _isScanningSubscription = BluetoothPrintPlus.isScanning.listen((event) {
-      print('********** isScanning: $event **********');
+      log('********** isScanning: $event **********');
       if (mounted) {
         setState(() {});
       }
@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
 
     /// listen blue state
     _blueStateSubscription = BluetoothPrintPlus.blueState.listen((event) {
-      print('********** blueState change: $event **********');
+      log('********** blueState change: $event **********');
       if (mounted) {
         setState(() {});
       }
@@ -85,7 +85,7 @@ class _HomePageState extends State<HomePage> {
 
     /// listen connect state
     _connectStateSubscription = BluetoothPrintPlus.connectState.listen((event) {
-      print('********** connectState change: $event **********');
+      log('********** connectState change: $event **********');
       switch (event) {
         case ConnectState.connected:
           setState(() {
@@ -106,7 +106,7 @@ class _HomePageState extends State<HomePage> {
 
     /// listen received data
     _receivedDataSubscription = BluetoothPrintPlus.receivedData.listen((data) {
-      print('********** received data: $data **********');
+      log('********** received data: $data **********');
 
       /// do something...
     });
@@ -193,7 +193,7 @@ class _HomePageState extends State<HomePage> {
     try {
       await BluetoothPrintPlus.startScan(timeout: Duration(seconds: 10));
     } catch (e) {
-      print("onScanPressed error: $e");
+      log("onScanPressed error: $e");
     }
   }
 
@@ -201,7 +201,7 @@ class _HomePageState extends State<HomePage> {
     try {
       BluetoothPrintPlus.stopScan();
     } catch (e) {
-      print("onStopPressed error: $e");
+      log("onStopPressed error: $e");
     }
   }
 }

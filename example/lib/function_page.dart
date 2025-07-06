@@ -33,7 +33,7 @@ class _FunctionPageState extends State<FunctionPage> {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.device.name ?? ""),
+        title: Text(widget.device.name),
       ),
       body: Column(
         children: [

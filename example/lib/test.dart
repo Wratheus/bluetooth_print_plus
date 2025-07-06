@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bluetooth_print_plus/bluetooth_print_plus.dart';
 import 'package:flutter/services.dart';
 
@@ -19,5 +21,5 @@ void test() async {
 
   final cmd = await tscCommand.getCommand();
 
-  print("getCommand $cmd");
+  log("getCommand $cmd");
 }
