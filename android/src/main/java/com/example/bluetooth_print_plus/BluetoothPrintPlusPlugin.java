@@ -1,8 +1,6 @@
-package com.example.bluetooth_print_plus.bluetooth_print_plus;
+package com.example.bluetooth_print_plus;
 
 import static android.bluetooth.BluetoothDevice.DEVICE_TYPE_LE;
-
-import static androidx.core.app.ActivityCompat.startActivityForResult;
 
 import android.Manifest;
 import android.app.Activity;
@@ -14,16 +12,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 
-import androidx.annotation.RequiresApi;
-
-import com.example.bluetooth_print_plus.bluetooth_print_plus.payload.BPPState;
-import com.example.bluetooth_print_plus.bluetooth_print_plus.payload.BluetoothParameter;
-import com.example.bluetooth_print_plus.bluetooth_print_plus.payload.Printer;
-import com.example.bluetooth_print_plus.bluetooth_print_plus.payload.ThreadPoolManager;
+import com.example.bluetooth_print_plus.BPPState;
+import com.example.bluetooth_print_plus.BluetoothParameter;
+import com.example.bluetooth_print_plus.Printer;
+import com.example.bluetooth_print_plus.ThreadPoolManager;
 import com.gprinter.bean.PrinterDevices;
 import com.gprinter.io.PortManager;
 import com.gprinter.utils.CallbackListener;

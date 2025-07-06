@@ -1,4 +1,4 @@
-package com.example.bluetooth_print_plus.bluetooth_print_plus.payload;
+package com.example.bluetooth_print_plus;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

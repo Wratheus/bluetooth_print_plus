@@ -1,4 +1,4 @@
-package com.example.bluetooth_print_plus.bluetooth_print_plus;
+package com.example.bluetooth_print_plus;
 
 import static com.gprinter.command.CpclCommand.COMMAND.BARCODE;
 import static com.gprinter.command.CpclCommand.COMMAND.VBARCODE;
