@@ -8,6 +8,7 @@ enum ConnectState { connected, disconnected }
 enum Rotation { r_0, r_90, r_180, r_270 }
 
 /// BarCodeType
+// ignore_for_file: constant_identifier_names
 enum BarCodeType {
   c_128,
   c_39,

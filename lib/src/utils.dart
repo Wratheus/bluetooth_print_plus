@@ -10,7 +10,7 @@ class StreamControllerReEmit<T> {
   final StreamController<T> _controller = StreamController<T>.broadcast();
 
   StreamControllerReEmit({required T initialValue})
-      : this.latestValue = initialValue;
+      : latestValue = initialValue;
 
   Stream<T> get stream {
     if (latestValue != null) {

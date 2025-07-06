@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/services.dart';
 import 'package:rxdart/rxdart.dart';
@@ -44,7 +45,7 @@ class BluetoothPrintPlus {
   static final _blueState =
       StreamControllerReEmit<BlueState>(initialValue: BlueState.blueOn);
 
-  static PublishSubject _stopScanPill = new PublishSubject();
+  static final PublishSubject _stopScanPill = PublishSubject();
 
   /// a stream of scan results
   /// - if you re-listen to the stream it re-emits the previous results
@@ -107,7 +108,7 @@ class BluetoothPrintPlus {
       _stopScanPill.add(null);
       await _methodChannel.invokeMethod('stopScan');
     } else {
-      print("stopScan: already stopped");
+      log("stopScan: already stopped");
     }
   }
 
@@ -162,9 +163,7 @@ class BluetoothPrintPlus {
     if (_stateNow == null) {
       var result = await _methodChannel.invokeMethod('state');
       // update _adapterStateNow if it is still null after the await
-      if (_stateNow == null) {
-        _stateNow = result;
-      }
+      _stateNow ??= result;
     }
 
     yield* _stateChannel.receiveBroadcastStream().map((s) {
@@ -209,7 +208,7 @@ class BluetoothPrintPlus {
       _stopScanPill.add(null);
       _isScanning.add(false);
     });
-    final killStreams = <Stream>[]..add(_stopScanPill);
+    final killStreams = <Stream>[_stopScanPill];
     killStreams.add(Rx.timer(null, timeout));
     yield* BluetoothPrintPlus._methodStream.stream
         .where((m) => m.method == "ScanResult")

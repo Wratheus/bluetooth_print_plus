@@ -28,7 +28,11 @@ class CpclCommand {
   ///
   /// This method must be called before calling any other method,
   /// otherwise the command buffer will be invalid.
-  Future<void> size({required width, required height, int copies = 1}) async {
+  Future<void> size({
+    required num width,
+    required num height,
+    int copies = 1,
+  }) async {
     Map<String, dynamic> params = {
       "width": width,
       "height": height,

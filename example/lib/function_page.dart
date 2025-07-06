@@ -3,6 +3,7 @@ import 'package:bluetooth_print_plus_example/command_tool.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+// ignore_for_file: constant_identifier_names
 enum CmdType { Tsc, Cpcl, Esc }
 
 class FunctionPage extends StatefulWidget {
@@ -109,23 +110,21 @@ class _FunctionPageState extends State<FunctionPage> {
   Row buildRadioGroupRowWidget() {
     return Row(children: [
       const Text("command type"),
-      ...CmdType.values
-          .map((e) => Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Radio(
-                    value: e,
-                    groupValue: cmdType,
-                    onChanged: (v) {
-                      setState(() {
-                        cmdType = e;
-                      });
-                    },
-                  ),
-                  Text(e.toString().split(".").last)
-                ],
-              ))
-          .toList()
+      ...CmdType.values.map((e) => Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Radio(
+                value: e,
+                groupValue: cmdType,
+                onChanged: (v) {
+                  setState(() {
+                    cmdType = e;
+                  });
+                },
+              ),
+              Text(e.toString().split(".").last)
+            ],
+          ))
     ]);
   }
 }
